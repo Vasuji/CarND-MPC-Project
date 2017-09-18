@@ -101,7 +101,7 @@ I used 3rd order of polynomial fit.
 
 ## The vehicle must successfully drive a lap around the track.
 
-https://......
+Sample run video is available at: https://youtu.be/0YL3SokIBq0
 
 
 
