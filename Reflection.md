@@ -4,13 +4,13 @@ We use a MPC controller, which is in simple terms curve fitting. Or finding out 
 
 >Student describes their model in detail. This includes the state, actuators and update equations.
 
-* state: The state comprises of 6 fields, which are:  `[px, py, psi, v, cte, epsi]`
+* State: The state comprises of 6 fields, which are:  `[px, py, psi, v, cte, epsi]`
 
-* actuators: The actuators of the system are acceleration and steering angle i.e. `[steering angle, throttle]`. These are the main outputs of the curve fitting using <code> IPOPT/CppAD </code> libraries which are used in the MPC.cpp.  
+* Actuators: The actuators of the system are acceleration and steering angle i.e. `[steering angle, throttle]`. These are the main outputs of the curve fitting using <code> IPOPT/CppAD </code> libraries which are used in the MPC.cpp.  
 
 The actuators of the system are acceleration and steering angle. These are the main outputs of the curve fitting using <code> IPOPT/CppAD </code> libraries which are used in the MPC.cpp. 
 
-update equations: These are the ones described in class. Shown below: 
+* Update Equations: These are the ones described in class. Shown below: 
 
 ```
 fg[1 + x_start + t] = x1 - (x0 + v0 * CppAD::cos(psi0) * dt);
@@ -23,9 +23,7 @@ fg[1 + epsi_start + t] =
   epsi1 - ((psi0 - psides0) + v0 * delta0 / Lf * dt);
 ```
 
-cost function: The cost specification is the critical part of MPC. I used all the things suggested in the class - CTE, ePsy, velocity reference delta, acceleration (absolute and its change rate), steering angle (absolute and its change rate). 
-
-The code for that is added in the <code> () </code> operator of FG_eval class.
+* Cost Function: The cost specification is the critical part of MPC. As suggested in the class - CTE, ePsy, velocity reference delta, acceleration (absolute and its change rate), steering angle (absolute and its change rate) has been used. 
 
 ```
  fg[0] = 0;
